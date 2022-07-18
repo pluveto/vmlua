@@ -90,7 +90,6 @@ public:
         while (pc < prog.insts.size()) {
             if (debug) {
                 std::cout << "pc = " << pc << '\n';
-                std::cout << "fp = " << fp << '\n';
                 std::cout << "stack: " << '\n';
                 show_stack();
                 std::cout << "program: " << '\n';
@@ -120,7 +119,8 @@ public:
                                 std::cout << "mem[" << addr << "] = out of range\n";
                             }
                         } else if (args.size() == 3) {
-                            auto reg = args[1] == "pc" ? pc : fp;
+                            // you have no choice
+                            auto reg = args[1] == "pc" ? pc : pc;
                             if (!lb::string_util::is_number(args[2])) {
                                 std::cout << "invalid argument: " << args[2] << std::endl;
                                 std::cout << "> " << std::flush;
@@ -278,7 +278,6 @@ public:
             if (debug) {
                 std::cout << " "                      //
                           << (vpc == pc ? "*" : " ")  //
-                          << (vpc == fp ? "~" : " ")  //
                           << std::setw(5) << vpc << "| ";
             } else {
                 std::cout << std::setw(8) << vpc << "| ";
