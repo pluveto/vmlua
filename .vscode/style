@@ -1,0 +1,7 @@
+{BasedOnStyle: Google,
+ IndentWidth: 4,
+ AccessModifierOffset: -4,
+AllowShortLoopsOnASingleLine: false,
+AllowShortIfStatementsOnASingleLine: true,
+ AlignConsecutiveAssignments: true,
+ ColumnLimit:0} 
