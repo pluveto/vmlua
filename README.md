@@ -239,10 +239,20 @@ Asm output
       48|     CALL what_if(21), nargs=1, nlocals=1
       49|     CALL print@internal, ARGC=1
 ```
-## 开启单步调试
+## 单步调试
 
-环境变量：
+目前支持显示栈、指令指针和汇编代码。
+
+启用方法：导入环境变量
 
 ```shell
 export VM_LUA_DEBUG=1
 ```
+
+使用方法：
+
+1. 回车或输入 step 进行单步调试。输入 `mem <addr>` 查看内存。
+2. 输入 `mem <reg> <offset>` 查看寄存器对应内存。
+3. 在汇编预览图中，`*` 就是指令指针的位置。
+
+![image](https://user-images.githubusercontent.com/50045289/179490366-a2bcf7a0-3755-4427-b5bd-dd8d414a4f74.png)
